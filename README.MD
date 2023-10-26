@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Telegram](https://img.shields.io/badge/Telegram-3670A0?style=for-the-badge&logo=telegram&logoColor=white)
-![Dialogflow](https://a11ybadges.com/badge?logo=dialogflow)
+
 
 # Бот "Игра глаголов"
 
