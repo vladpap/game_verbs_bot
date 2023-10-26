@@ -61,6 +61,10 @@ cover/
 *.mo
 *.pot
 
+# My temp
+example.py
+create_api_key.py
+
 # Django stuff:
 *.log
 local_settings.py

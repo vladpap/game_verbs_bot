@@ -1,5 +1,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Telegram](https://img.shields.io/badge/Telegram-3670A0?style=for-the-badge&logo=telegram&logoColor=white)
+![Dialogflow](https://a11ybadges.com/badge?logo=dialogflow)
 
 # Бот "Игра глаголов"
 
@@ -19,12 +20,19 @@ $ pip install -r requirements.txt
 Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
 
 - `TG_BOT_TOKEN=HERE_TOKEN_TELEGRAM_BOT` - Токен ключ телеграм бота
+- `DIALOGFLOW_PROJECT_ID=HERE_PROJECT_ID` - Проект ID DialogFlow
 
 ## Запуск
 
 ```console
 $ python3 game_verbs_bot.py
 ```
+## Скрипт обучения на DialogFlow
+```console
+$ python3 intent_management.py file_name
+```
+
+`file_name` Имя json файла с вопросами и ответом для создания Intent на DialogFlow.
 
 ## Цели проекта
 
