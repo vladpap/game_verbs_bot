@@ -64,6 +64,7 @@ cover/
 # My temp
 example.py
 create_api_key.py
+credentials.json
 
 # Django stuff:
 *.log

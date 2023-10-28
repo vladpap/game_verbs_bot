@@ -15,12 +15,15 @@
 $ pip install -r requirements.txt
 ```
 
+
 ### Переменные окружения
 
 Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
 
 - `TG_BOT_TOKEN=HERE_TOKEN_TELEGRAM_BOT` - Токен ключ телеграм бота
 - `DIALOGFLOW_PROJECT_ID=HERE_PROJECT_ID` - Проект ID DialogFlow
+- `GOOGLE_APPLICATION_CREDENTIALS` - имя файла json authenticate by using API keys
+
 
 ## Запуск
 

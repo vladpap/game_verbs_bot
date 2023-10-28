@@ -1,7 +1,7 @@
 import logging
 
 from environs import Env
-from google.cloud import api_keys_v2, dialogflow
+from google.cloud import dialogflow
 from telegram import Update
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, Updater)
@@ -15,28 +15,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def create_api_key(project_id):
-    client = api_keys_v2.ApiKeysClient()
-
-    key = api_keys_v2.Key()
-    key.display_name = "My first API key"
-
-    request = api_keys_v2.CreateKeyRequest()
-    request.parent = f"projects/{project_id}/locations/global"
-    request.key = key
-
-    response = client.create_key(request=request).result()
-    return response
-
-
 def start(update: Update, context: CallbackContext) -> None:
 
     update.message.reply_text('Здравствуйте')
-
-
-def echo(update: Update, context: CallbackContext) -> None:
-    """Echo the user message."""
-    update.message.reply_text(update.message.text)
 
 
 def detect_intent_text(project_id,
@@ -76,11 +57,8 @@ if __name__ == '__main__':
     env.read_env()
 
     project_id = env.str('DIALOGFLOW_PROJECT_ID')
-
-    DF_TOKEN = create_api_key(project_id)
-    print("Successfully created an API key")
-
     TG_TOKEN = env.str('TG_BOT_TOKEN')
+
     updater = Updater(TG_TOKEN)
 
     dispatcher = updater.dispatcher
