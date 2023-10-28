@@ -23,6 +23,7 @@ $ pip install -r requirements.txt
 - `TG_BOT_TOKEN=HERE_TOKEN_TELEGRAM_BOT` - Токен ключ телеграм бота
 - `DIALOGFLOW_PROJECT_ID=HERE_PROJECT_ID` - Проект ID DialogFlow
 - `GOOGLE_APPLICATION_CREDENTIALS` - имя файла json authenticate by using API keys
+- `VK_COMMUNITY_TOKEN` - токен группы в контакте
 
 
 ## Запуск
