@@ -31,12 +31,21 @@ $ pip install -r requirements.txt
 ```console
 $ python3 game_verbs_bot.py
 ```
+```console
+$ python3 game_verbs_bot_vk.py
+```
 ## Скрипт обучения на DialogFlow
 ```console
 $ python3 intent_management.py file_name
 ```
 
 `file_name` Имя json файла с вопросами и ответом для создания Intent на DialogFlow.
+
+## Работающие боты
+[VK](https://vk.com/public223195342) и [Telegram](https://t.me/pvg_game_of_verbs_bot)
+
+## Пример работы бота
+![](https://github.com/vladpap/game_verbs_bot/blob/main/game_of_verbs_bot.gif)
 
 ## Цели проекта
 
