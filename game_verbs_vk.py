@@ -3,47 +3,18 @@ import random
 
 import vk_api
 from environs import Env
-from google.cloud import dialogflow
 from vk_api.longpoll import VkEventType, VkLongPoll
 
-# Enable logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
+from my_detect_intent import detect_intent_text
 
-logger = logging.getLogger(__name__)
-
-
-def detect_intent_text(project_id,
-                       session_id,
-                       message_to_dialogflow,
-                       language_code='ru'):
-    session_client = dialogflow.SessionsClient()
-    session = session_client.session_path(project_id, session_id)
-
-    text_input = dialogflow.TextInput(
-        text=message_to_dialogflow,
-        language_code=language_code)
-    query_input = dialogflow.QueryInput(text=text_input)
-    response = session_client.detect_intent(
-        request={"session": session, "query_input": query_input}
-    )
-    serialized_answer = {
-        'intention': response.query_result.intent.display_name,
-        'confidence': response.query_result.intent_detection_confidence,
-        'answer': response.query_result.fulfillment_text
-    }
-    if response.query_result.intent.is_fallback:
-        return
-
-    return serialized_answer
+logger = logging.getLogger('game verbs chat vk')
 
 
 def echo_dialogflow(event, vk_api) -> None:
     message_to_dialogflow = event.text
     session_id = vk_api.messages.getChat.chat_id
     serialized_answer = detect_intent_text(
+        logger,
         project_id,
         session_id,
         message_to_dialogflow)
@@ -60,6 +31,8 @@ if __name__ == '__main__':
 
     env = Env()
     env.read_env()
+
+    logger.info('Start chat vk')
 
     project_id = env.str('DIALOGFLOW_PROJECT_ID')
 
