@@ -39,8 +39,8 @@ def create_intent(project_id,
 
 
 def open_json_file(file_name):
-    with open(file_name, 'r') as my_file:
-        file_json = my_file.read()
+    with open(file_name, 'r') as json_file:
+        file_json = json_file.read()
 
     return json.loads(file_json)
 
@@ -63,11 +63,11 @@ if __name__ == '__main__':
 
     project_id = env.str('DIALOGFLOW_PROJECT_ID')
 
-    for title in indents_title:
-        indent = questions[title]
-        create_intent(
-            project_id=project_id,
-            display_name=title,
-            training_phrases_parts=indent['questions'],
-            message_texts=(indent['answer'],)
-        )
+    for indent_title, indent_questions_answer in questions.items():
+        for indent_questions, indent_answer in indent_questions_answer.items():
+            create_intent(
+                project_id=project_id,
+                display_name=indent_title,
+                training_phrases_parts=indent_questions,
+                message_texts=(indent_answer,)
+            )

@@ -65,6 +65,7 @@ cover/
 example.py
 create_api_key.py
 credentials.json
+create_api_key.py
 
 # Django stuff:
 *.log
