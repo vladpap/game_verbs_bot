@@ -56,7 +56,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     questions = open_json_file(args.file_name)
-    indents_title = list(questions.keys())
 
     env = Env()
     env.read_env()

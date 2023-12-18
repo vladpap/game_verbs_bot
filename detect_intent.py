@@ -20,6 +20,7 @@ def detect_intent_text(project_id,
     serialized_answer = {
         'display_name': response.query_result.intent.display_name,
         'confidence': response.query_result.intent_detection_confidence,
-        'fulfillment_text': response.query_result.fulfillment_text
+        'fulfillment_text': response.query_result.fulfillment_text,
+        'is_fallback': True if response.query_result.intent.is_fallback else False
     }
     return serialized_answer
